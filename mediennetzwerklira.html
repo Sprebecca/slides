@@ -15,7 +15,12 @@ Danach kannst Du runterscrollen bis zum nächsten ausführlichen Kommentar.
 -->
 
 <html lang="de">
-
+<script src="plugin/zoom/zoom.js"></script>
+<script>
+  Reveal.initialize({
+    plugins: [ RevealZoom ]
+  });
+</script>
 	<head>
 		<meta charset="utf-8">
 
@@ -183,13 +188,7 @@ sondern <section data background="..."> kannst Du Farbe, Bilder, Gifs oder Video
 					<h1>JETZT bist Du dran!</h1>
 					<p>
 						
-						<script src="js/zoom.js"></script>
-		<script>
-			document.querySelector( '.page-body' ).addEventListener( 'click', function( event ) {
-				event.preventDefault();
-				zoom.to({ element: event.target });
-			} );
-		</script>
+					
 						👉 <a href="https://github.com/eBildungslabor/slides/blob/master/README.md">Lies Dir die Schritt für Schritt Anleitung durch.</a> <br>
 					</p>
 				</section>
