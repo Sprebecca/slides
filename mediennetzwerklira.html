@@ -184,7 +184,13 @@ sondern <section data background="..."> kannst Du Farbe, Bilder, Gifs oder Video
 			
 				<section>
 					<h1>JETZT bist Du dran!</h1>
-					<p>
+					<p><script src="js/zoom.js"></script>
+		<script>
+			document.querySelector( '.page-body' ).addEventListener( 'click', function( event ) {
+				event.preventDefault();
+				zoom.to({ element: event.target });
+			} );
+		</script>
 						👉 <a href="https://github.com/eBildungslabor/slides/blob/master/README.md">Lies Dir die Schritt für Schritt Anleitung durch.</a> <br>
 					</p>
 				</section>
