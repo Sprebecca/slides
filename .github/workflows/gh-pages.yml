@@ -1,26 +1,32 @@
-name: github pages
-
+name: reveal-pdf
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - master
+    paths:
+      - 'reveal-js-presentation/*'
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ubuntu-latest
+
+    name: Generate PDF
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/checkout@v2.3.4
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.79.1'
-          # extended: true
+      - name: Create "/slides" directory
+        run: mkdir slides && sudo chmod 777 slides
 
-      - name: Build
+      - name: Build PDF
+        run: docker run --rm -t -v `pwd`:/slides -v ~:/home/user astefanutti/decktape reveal-js-presentation/index.html slides/reveal-js-presentation.pdf
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./slides
+          publish_branch: slides
+          keep_files: true
         run: hugo --minify
 
       - name: Deploy
