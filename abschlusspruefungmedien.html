@@ -29,6 +29,7 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 			Reveal.configure({ pdfMaxPagesPerSlide: 1 });
+			Reveal.configure({ pdfSeparateFragments: false });
 
 		</script>
 
@@ -61,7 +62,7 @@
 					
 					 <ul>
 						 
-					           <br> <div style="background-color:#122F50" class="fragment fade-in; r-frame">Ressourcen und Rahmenbedingungen, um Eltern/Fachkräfte zu unterstützen und Kindern/Jugendlichen Zugänge zu Medienwelten zu bieten.</div> <br/>
+					           <br> class="fragment fade-in; r-frame">Rugendlichen Zugänge zu Medienwelten zu bieten. <br/>
 					                  
 					 </ul>
 							  
@@ -171,11 +172,7 @@
 </section>	
 </div>				   
 <div class="slides">				   
-        <section>				   
-            <section data-background="https://media.giphy.com/media/TED2cUrP8675RkkQo3/giphy.gif">
-         <h1 class="fragment highlight-blue">Was denkt ihr?<h1>
-             </section>
-         </section>
+   
 		       
 		       
 		       
@@ -204,7 +201,7 @@
 				progress: true,
 				history: true,
 				center: true,
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
